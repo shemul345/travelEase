@@ -44,8 +44,8 @@ const Navbar = () => {
                     <FaUserAlt />
                 </a>
                 <Link to="login">
-                    <button>
-                        <span> Login
+                    <button className='btn-login'>
+                        <span className='login'> Login
                         </span>
                     </button>
                 </Link>

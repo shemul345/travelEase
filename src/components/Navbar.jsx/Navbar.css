@@ -4,7 +4,7 @@ a span {
 
 
 /* From uiverse.io by @Ali-Tahmazi99 */
-button {
+.btn-login {
     display: inline-block;
     width: 100px;
     height: 40px;
@@ -16,8 +16,8 @@ button {
     z-index: 1;
 }
 
-button::before,
-button::after {
+.btn-login::before,
+.btn-login::after {
     content: '';
     position: absolute;
     top: 0;
@@ -29,27 +29,27 @@ button::after {
     z-index: -1;
 }
 
-button::before {
+.btn-login::before {
     left: -10px;
     background: black;
 }
 
-button::after {
+.btn-login::after {
     right: -10px;
     background: red;
 }
 
-button:hover::before,
-button:hover::after {
+.btn-login:hover::before,
+.btn-login:hover::after {
     width: 64%;
 }
 
-button:hover span {
+.btn-login:hover .login {
     color: #ffffff;
     transition: 0.3s;
 }
 
-button span {
+.btn-login .login {
     color: #03045e;
     font-size: 16px;
     font-weight: bold;
