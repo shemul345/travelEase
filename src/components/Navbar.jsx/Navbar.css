@@ -1,0 +1,57 @@
+a span {
+    margin-left: -7px;
+}
+
+
+/* From uiverse.io by @Ali-Tahmazi99 */
+button {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    border-radius: 16px;
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+button::before,
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+button::before {
+    left: -10px;
+    background: black;
+}
+
+button::after {
+    right: -10px;
+    background: red;
+}
+
+button:hover::before,
+button:hover::after {
+    width: 64%;
+}
+
+button:hover span {
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+button span {
+    color: #03045e;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in;
+}

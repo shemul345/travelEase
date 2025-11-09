@@ -1,17 +1,21 @@
 import React from 'react';
+import { FaCar, FaUserAlt } from 'react-icons/fa';
 import { GoHomeFill } from 'react-icons/go';
-import { NavLink } from 'react-router';
+import { IoMdAddCircle } from 'react-icons/io';
+import { Link, NavLink } from 'react-router';
+import './Navbar.css';
+import logo from '../../assets/logo.jpg'
 
 const Navbar = () => {
     const links = <>
-        <li><NavLink to={"/"}><GoHomeFill />Home</NavLink></li>
-        <li><NavLink to={"/allVehicles"}><GoHomeFill />All Vehicles</NavLink></li>
-        <li><NavLink to={"/addVehicle"}><GoHomeFill />Add Vehicle</NavLink></li>
-        <li><NavLink to={"/myVehicles"}><GoHomeFill />My Vehicles</NavLink></li>
-        <li><NavLink to={"/myBookings"}><GoHomeFill />My Bookings</NavLink></li>
+        <li><NavLink to={"/"}><GoHomeFill className='text-xl'/>Home</NavLink></li>
+        <li><NavLink to={"/allVehicles"}><FaCar className='text-xl' />All Vehicles</NavLink></li>
+        <li><NavLink to={"/addVehicle"}><IoMdAddCircle className='text-xl' />Add Vehicle</NavLink></li>
+        <li><NavLink to={"/myVehicles"}>My Vehicles</NavLink></li>
+        <li><NavLink to={"/myBookings"}>My Bookings</NavLink></li>
     </>
     return (
-        <div className="navbar py-2 px-8 min-h-0 z-1 shadow-xl rounded-full glass-card max-w-7xl">
+        <div className="navbar py-2 px-8 min-h-0 z-1 shadow-xl rounded-full glass-card max-w-7xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -23,15 +27,28 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <div className='flex justify-center items-center gap-1'>
+                    <img className='w-[50px]' src={logo} alt="" />
+                    <a href='/' className="text-3xl font-bold bg-gradient-to-r from-black to-orange-500 bg-clip-text text-transparent">
+                        TravelEase
+                    </a>  
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end flex gap-3">
+                <a href='/profile' className="text-3xl">
+                    <FaUserAlt />
+                </a>
+                <Link to="login">
+                    <button>
+                        <span> Login
+                        </span>
+                    </button>
+                </Link>
             </div>
         </div>
     );
