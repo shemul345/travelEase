@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './VehicleCard.css'
 import { IoLocationSharp } from 'react-icons/io5';
 import { FaDollarSign } from 'react-icons/fa';
 import { Link } from 'react-router';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 const VehicleCard = ({vehicle}) => {
     const { _id,
@@ -12,8 +14,16 @@ const VehicleCard = ({vehicle}) => {
         vehicleName,
         availability,
         pricePerDay } = vehicle;
+    
+     useEffect(() => {
+            Aos.init({
+                duration: 1000,
+                once: false,
+                mirror: true,
+            });
+        }, []);
     return (
-        <div className="card w-full">
+        <div data-aos="fade-down" className="card w-full">
             <div>
                 <img className='w-[350px] h-[250px] mx-auto rounded-xl shadow-sm' src={coverImage} alt="" />
             </div>
