@@ -13,6 +13,7 @@ const AllVehicles = () => {
             </p>
             <h1 className='text-3xl font-bold text-center'>
                 Discover all our <span className='text-orange-400'>vehicles</span> in one place.</h1>
+            <p>All Vehicles({vehicles.length})</p>
             <div className='max-w-11/12 mx-auto my-10 grid grid-cols-1 
             md:grid-cols-3 lg:grid-cols-3 gap-5'>
                 {

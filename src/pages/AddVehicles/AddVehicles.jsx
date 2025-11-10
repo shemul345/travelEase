@@ -1,11 +1,49 @@
-import React from 'react';
+import React, { use } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const AddVehicles = () => {
+    const { user } = use(AuthContext)
+    console.log(user)
+
+    const handleAddVehicle = (e) => {
+        e.preventDefault()
+
+        const formData = {
+            vehicleName: e.target.vehicleName.value,
+            category: e.target.category.value,
+            availability: e.target.availability.value,
+            location: e.target.location.value,
+            pricePerDay: e.target.pricePerDay.value,
+            coverImage: e.target.coverImage.value,
+            description: e.target.description.value,
+            userEmail: user.email,
+            owner: user.displayName,
+            createdAt: new Date().toISOString()
+        }
+        
+        fetch('http://localhost:3000/vehicles', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success("Added successfully!")
+            })
+            .catch(error => {
+            console.log(error)
+        })
+    }
+    
     return (
         <div className="my-5 card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl rounded-2xl">
             <div className="card-body p-2 relative">
                 <h2 className="text-2xl font-bold text-center mb-6">Add New Vehicle</h2>
-                <form  className="space-y-4">
+                <form onSubmit={handleAddVehicle}  className="space-y-4">
                     {/* Name Field */}
                     <div>
                         <label className="label font-medium">Vehicle Name</label>
@@ -30,12 +68,29 @@ const AddVehicles = () => {
                             <option value="" disabled>
                                 Select category
                             </option>
-                            <option value="Vehicles">Sedan</option>
-                            <option value="Plants">SUV</option>
-                            <option value="Foods">Electric</option>
-                            <option value="Home & Living">Van</option>
-                            <option value="Characters">Bike</option>
-                            <option value="Space">Hiace</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Van">Van</option>
+                            <option value="Bike">Bike</option>
+                            <option value="Hiace">Hiace</option>
+                        </select>
+                    </div>
+
+                    {/* Availabilty Dropdown */}
+                    <div>
+                        <label className="label font-medium">Availability</label>
+                        <select
+                            defaultValue={""}
+                            name="availability"
+                            required
+                            className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
+                        >
+                            <option value="" disabled>
+                                Select availability
+                            </option>
+                            <option value="Available">Available</option>
+                            <option value="Booked">Booked</option>
                         </select>
                     </div>
 
@@ -131,7 +186,7 @@ const AddVehicles = () => {
                         />
                     </div>
 
-                    {/* Thumbnail URL */}
+                    {/* Vehicle Image URL */}
                     <div>
                         <label className="label font-medium">Vehicle Image URL</label>
                         <input
