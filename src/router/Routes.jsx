@@ -21,11 +21,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: "allVehicles",
-                Component:AllVehicles
+                Component: AllVehicles,
+                loader: () => fetch('http://localhost:3000/vehicles')
             },
             {
                 path: "addVehicle",
-                Component:AddVehicles
+                Component: AddVehicles
             },
             {
                 path: "myVehicles",

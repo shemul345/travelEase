@@ -199,7 +199,7 @@ const Register = () => {
                             Continue with Github
                         </button>
                         <p className='text-sm text-center'>Already have an account?
-                            <Link to="/auth/login" className="text-blue-600 link-hover underline font-semibold"> Login</Link>
+                            <Link to="/login" className="text-blue-600 link-hover underline font-semibold"> Login</Link>
                         </p>
                     </form>
                 </div>
