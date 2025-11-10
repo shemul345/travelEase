@@ -40,7 +40,7 @@ const Banner = () => {
                                         loop
                                         muted
                                         playsInline
-                                        className="w-full h-[80vh] object-cover brightness-90"
+                                        className="w-full h-[100vh] object-cover brightness-90"
                                     />
                                     <div className="inset-0 bg-linear-to-t from-black/40 to-transparent" />
                                     {/* ✅ “All Vehicles” Button */}
@@ -87,7 +87,7 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-            <div className="mb-[500px]"></div>
+            <div></div>
         </>
     );
 };

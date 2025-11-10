@@ -2,22 +2,36 @@ a span {
     margin-left: -7px;
 }
 
-
-/* From uiverse.io by @Ali-Tahmazi99 */
-.btn-login {
-    display: inline-block;
-    width: 100px;
-    height: 40px;
+/* Navbar design */
+/* Normal link style */
+nav a.active {
+    margin-left: 5px;
     border-radius: 16px;
-    border: 1px solid red;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s ease-in;
-    z-index: 1;
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.1s ease;
 }
 
-.btn-login::before,
-.btn-login::after {
+/* Hover effect */
+nav a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Active link animation (like your .btn-login style but simpler) */
+nav a.active {
+    color: #fff;
+    background-color: crimson;
+    border: 1px solid crimson;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+nav a.active::before,
+nav a.active::after {
     content: '';
     position: absolute;
     top: 0;
@@ -25,33 +39,20 @@ a span {
     height: 100%;
     transform: skew(15deg);
     transition: all 0.5s;
-    overflow: hidden;
     z-index: -1;
 }
 
-.btn-login::before {
+nav a.active::before {
     left: -10px;
     background: black;
 }
 
-.btn-login::after {
+nav a.active::after {
     right: -10px;
     background: red;
 }
 
-.btn-login:hover::before,
-.btn-login:hover::after {
+nav a.active:hover::before,
+nav a.active:hover::after {
     width: 64%;
-}
-
-.btn-login:hover .login {
-    color: #ffffff;
-    transition: 0.3s;
-}
-
-.btn-login .login {
-    color: #03045e;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease-in;
 }

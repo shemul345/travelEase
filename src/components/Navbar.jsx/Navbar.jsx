@@ -3,8 +3,8 @@ import { FaCar, FaUserAlt } from 'react-icons/fa';
 import { GoHomeFill } from 'react-icons/go';
 import { IoMdAddCircle } from 'react-icons/io';
 import { Link, NavLink } from 'react-router';
-import './Navbar.css';
 import logo from '../../assets/logo.jpg'
+import './Navbar.css';
 
 const Navbar = () => {
     const links = <>
@@ -15,7 +15,7 @@ const Navbar = () => {
         <li><NavLink to={"/myBookings"}>My Bookings</NavLink></li>
     </>
     return (
-        <div className="navbar py-2 px-8 min-h-0 z-1 shadow-xl rounded-full glass-card max-w-7xl mx-auto">
+        <div className="navbar py-2 px-8 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,8 +44,8 @@ const Navbar = () => {
                     <FaUserAlt />
                 </a>
                 <Link to="login">
-                    <button className='btn-login'>
-                        <span className='login'> Login
+                    <button className='btn-primary w-[100px]'>
+                        <span className='text'> Login
                         </span>
                     </button>
                 </Link>

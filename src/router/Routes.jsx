@@ -8,6 +8,7 @@ import MyVehicles from '../pages/MyVehicles/MyVehicles';
 import MyBookings from '../pages/MyBookings/MyBookings';
 import Login from '../pages/Login/Login';
 import Profile from '../pages/Profile/Profile';
+import Register from '../pages/Register/Register';
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: "login",
                 Component:Login
+            },
+            {
+                path: "register",
+                Component: Register
             },
             {
                 path: "profile",
