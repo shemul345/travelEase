@@ -2,9 +2,11 @@ import React from 'react';
 import './VehicleCard.css'
 import { IoLocationSharp } from 'react-icons/io5';
 import { FaDollarSign } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const VehicleCard = ({vehicle}) => {
-    const { coverImage,
+    const { _id,
+        coverImage,
         location,
         owner,
         vehicleName,
@@ -27,7 +29,7 @@ const VehicleCard = ({vehicle}) => {
             <h3 className='flex justify-center items-center text-2xl mt-4'>
                 <span className='font-bold mr-3'>Price Per Day:</span>
                 <span className='text-red-600 text-2xl'>${pricePerDay}</span></h3>
-            <button className="card-button">More info</button>
+            <Link to={`/vehicleDetails/${_id}`}><button className="card-button">More info</button></Link>
         </div>
     );
 };

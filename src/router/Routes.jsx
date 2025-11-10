@@ -9,6 +9,7 @@ import MyBookings from '../pages/MyBookings/MyBookings';
 import Login from '../pages/Login/Login';
 import Profile from '../pages/Profile/Profile';
 import Register from '../pages/Register/Register';
+import VehicleDetails from '../pages/VehicleDetails/VehicleDetails';
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,11 @@ export const router = createBrowserRouter([
                 path: "allVehicles",
                 Component: AllVehicles,
                 loader: () => fetch('http://localhost:3000/vehicles')
+            },
+            {
+                path: "vehicleDetails/:id",
+                Component: VehicleDetails,
+                loader: (params) => fetch(`http://localhost:3000/vehicles/${params.id}`)
             },
             {
                 path: "addVehicle",
