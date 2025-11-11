@@ -30,7 +30,7 @@ const VehicleCard = ({vehicle}) => {
             <div className="card-details flex justify-between items-center mt-5">
                 <p className="text-2xl font-semibold">{vehicleName}</p>
                 <p className={`text-body border rounded-3xl py-2 px-5 text-center text-white 
-  ${availability === "Available" ? "bg-green-400" : "bg-red-400"}`}>{availability}</p>
+                ${availability === "Available" ? "bg-green-400" : "bg-red-400"}`}>{availability}</p>
             </div>
             <div className='flex justify-between items-center'>
                 <p className='text-lg italic text-orange-400 font-semibold'>{owner}</p>

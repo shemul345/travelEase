@@ -10,6 +10,7 @@ import Login from '../pages/Login/Login';
 import Profile from '../pages/Profile/Profile';
 import Register from '../pages/Register/Register';
 import VehicleDetails from '../pages/VehicleDetails/VehicleDetails';
+import UpdateVehicle from '../pages/UpdateVehicle/UpdateVehicle';
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ export const router = createBrowserRouter([
             {
                 path: "vehicleDetails/:id",
                 Component: VehicleDetails,
+                loader: ({ params }) => fetch(`http://localhost:3000/vehicles/${params.id}`)
+            },
+            {
+                path: "updateVehicle/:id",
+                Component: UpdateVehicle,
                 loader: ({ params }) => fetch(`http://localhost:3000/vehicles/${params.id}`)
             },
             {
