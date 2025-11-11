@@ -1,14 +1,52 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
 import './VehicleDetails.css'
 import { IoLocationSharp } from 'react-icons/io5';
 import { GoArrowUpLeft } from 'react-icons/go';
+import Swal from 'sweetalert2';
 
 const VehicleDetails = () => {
     const vehicleData = useLoaderData()
+    const navigate = useNavigate();
     const vehicle = vehicleData.result
     console.log(vehicle)
     const { _id, coverImage, description, owner, location, vehicleName, userEmail, pricePerDay } = vehicle;
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:3000/vehicles/${_id}`, {
+                    method: "DELETE",
+                    headers: {
+                        'content-type':'application/json'
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        navigate('/allVehicles')
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    })
+                    .catch(error => {
+                    console.log(error)
+                })
+                
+            }
+        });
+    }
     return (
         <div className='max-w-11/12 mx-auto my-10'>
             <div className='grid grid-cols-1 lg:grid-cols-3 justify-center items-center'>
@@ -35,7 +73,7 @@ const VehicleDetails = () => {
                             <button className='bg-green-500 hover:bg-green-600 border border-blue-400 font-semibold rounded-3xl w-[100px] h-[50px]'><span className='text-white'>Update</span></button>
                         </Link>
 
-                        <button className='hover:bg-red-500 hover:text-white duration-300 border font-semibold rounded-3xl w-[100px] h-[50px]'>Delete</button>
+                        <button onClick={handleDelete} className='hover:bg-red-500 hover:text-white duration-300 border font-semibold rounded-3xl w-[100px] h-[50px]'>Delete</button>
                     </div>
                     <div>
                         <p className='italic'><span className='font-semibold'>Description:</span> {description}</p>
