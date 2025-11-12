@@ -11,6 +11,7 @@ import Profile from '../pages/Profile/Profile';
 import Register from '../pages/Register/Register';
 import VehicleDetails from '../pages/VehicleDetails/VehicleDetails';
 import UpdateVehicle from '../pages/UpdateVehicle/UpdateVehicle';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -29,7 +30,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: "vehicleDetails/:id",
-                Component: VehicleDetails,
+                element: <PrivateRoute>
+                    <VehicleDetails></VehicleDetails>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:3000/vehicles/${params.id}`)
             },
             {
