@@ -19,7 +19,7 @@ const AddVehicles = () => {
             description: e.target.description.value,
             userEmail: user.email,
             owner: user.displayName,
-            createdAt: new Date().toISOString()
+            createdAt: new Date()
         }
         
         fetch('http://localhost:3000/vehicles', {
