@@ -3,7 +3,7 @@ import VehicleCard from '../VehicleCard/VehicleCard';
 
 const LatestVehicles = ({ latestVehicles }) => {
     return (
-        <div className='max-w-9xl mx-auto mt-10'>
+        <div className='max-w-9xl mx-auto'>
             <p className='text-center'>
                 <span className="border border-red-900 w-6 h-0.5 inline-block"></span>
                 <span className='font-semibold text-orange-300'>Latest-vehicles</span>

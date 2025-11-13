@@ -2,6 +2,8 @@ import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import LatestVehicles from '../../components/LatestVehicles/LatestVehicles';
 import { useLoaderData } from 'react-router';
+import Services from '../../components/Services/Services';
+import ClientReviews from '../../components/ClientReviews/ClientReviews';
 
 const Home = () => {
     const latestVehicles = useLoaderData()
@@ -10,8 +12,14 @@ const Home = () => {
             <section>
                 <Banner></Banner>
             </section>
-            <section className=''>
+            <section className='mt-10'>
                 <LatestVehicles latestVehicles={latestVehicles}></LatestVehicles>
+            </section>
+            <section className='mt-10'>
+                <Services></Services>
+            </section>
+            <section>
+                <ClientReviews></ClientReviews>
             </section>
         </div>
     );

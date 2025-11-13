@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import VehicleCard from '../../components/VehicleCard/VehicleCard';
 import { GoArrowUpLeft } from 'react-icons/go';
 
 const AllVehicles = () => {
-    const vehicles = useLoaderData()
-    console.log(vehicles)
+    const vehicles = useLoaderData();
+    const [sortedVehicles, setSortedVehicles] = useState(vehicles);
+    const [sortOrder, setSortOrder] = useState('default'); // defa
+    // console.log(vehicles)
+
+    useEffect(() => {
+        let sorted = [...vehicles];
+
+        if (sortOrder === 'lowToHigh') {
+            sorted.sort((a, b) => a.pricePerDay - b.pricePerDay);
+        } else if (sortOrder === 'highToLow') {
+            sorted.sort((a, b) => b.pricePerDay - a.pricePerDay);
+        } else {
+            sorted = vehicles;
+        }
+
+        setSortedVehicles(sorted);
+    }, [sortOrder, vehicles]);
     return (
         <div className='max-w-9xl mx-auto mt-10'>
             <p className='text-center'>
@@ -14,12 +30,38 @@ const AllVehicles = () => {
             </p>
             <h1 className='text-3xl font-bold text-center'>
                 Discover all our <span className='text-orange-400'>vehicles</span> in one place.</h1>
-            <p className='ml-20 text-xl font-semibold mt-5'>
-                Available Vehicles Now (<span className='text-orange-500 font-bold'>{vehicles.length}</span>)</p>
+
+            
+            {/* Sorting + Count */}
+            <div className='max-w-7xl mx-auto'>
+                <div className="flex flex-col sm:flex-row justify-between items-center mt-6 mb-4 gap-3">
+                    <p className="text-lg font-semibold">
+                        Available Vehicles Now (
+                        <span className="text-orange-500 font-bold">{vehicles.length}</span>)
+                    </p>
+
+                    {/* Sorting Dropdown */}
+                    <div className="flex items-center gap-2">
+                        <label htmlFor="sort" className="text-gray-700 font-medium">
+                            Sort by:
+                        </label>
+                        <select
+                            id="sort"
+                            value={sortOrder}
+                            onChange={(e) => setSortOrder(e.target.value)}
+                            className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                        >
+                            <option value="default">Default</option>
+                            <option value="lowToHigh">Price: Low to High</option>
+                            <option value="highToLow">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div className='max-w-11/12 mx-auto my-10 grid grid-cols-1 
             md:grid-cols-3 lg:grid-cols-3 gap-5'>
                 {
-                    vehicles.map(vehicle => <VehicleCard key={vehicle._id} vehicle={vehicle}></VehicleCard>)
+                    sortedVehicles.map(vehicle => <VehicleCard key={vehicle._id} vehicle={vehicle}></VehicleCard>)
                 }
             </div>
             <div>

@@ -74,6 +74,7 @@ const AddVehicles = () => {
                             <option value="Van">Van</option>
                             <option value="Bike">Bike</option>
                             <option value="Hiace">Hiace</option>
+                            <option value="Ambulance">Ambulance</option>
                         </select>
                     </div>
 

@@ -25,7 +25,9 @@ const Navbar = () => {
 
     const links = <>
         <li className='mr-5'><NavLink to={"/"}><GoHomeFill className='text-xl' />Home</NavLink></li>
-        <li className='mr-5'><NavLink to={"/allVehicles"}><FaCar className='text-xl' />All Vehicles</NavLink></li>
+        <li className='mr-5'>
+            <NavLink to={"/allVehicles"}><FaCar className='text-xl' />All Vehicles</NavLink></li>
+        <li><NavLink to={"/addVehicle"}><IoMdAddCircle className='text-xl' />Add Vehicle</NavLink></li>
         <li><NavLink to={"/about"}><FaInfoCircle className='text-xl' />About Us</NavLink></li>
     </>
 
@@ -79,7 +81,6 @@ const Navbar = () => {
                                 <li className="text-xs">{user.email}</li>
                             </div>
                             <li className="mt-3"><NavLink to={"/profile"}><FaUser />Profile</NavLink></li>
-                            <li><NavLink to={"/addVehicle"}><IoMdAddCircle className='text-xl' />Add Vehicle</NavLink></li>
                             <li><NavLink to={"/myVehicles"}>My Vehicles</NavLink></li>
                             <li><NavLink to={"/myBookings"}>My Bookings</NavLink></li>
 
