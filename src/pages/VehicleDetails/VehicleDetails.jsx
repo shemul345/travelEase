@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router';
 import './VehicleDetails.css'
 import { IoLocationSharp } from 'react-icons/io5';
 import { GoArrowUpLeft } from 'react-icons/go';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const VehicleDetails = () => {
+    const {user} = use(AuthContext)
     const vehicleData = useLoaderData()
     const navigate = useNavigate();
     const vehicle = vehicleData.result
@@ -47,6 +50,24 @@ const VehicleDetails = () => {
             }
         });
     }
+
+    const handleBooking = () => {
+        fetch("http://localhost:3000/bookings", {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({...vehicle, booked_by: user.email})
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('Successfully booked')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
     return (
         <div className='max-w-11/12 mx-auto my-10'>
             <div className='grid grid-cols-1 lg:grid-cols-3 justify-center items-center'>
@@ -67,10 +88,14 @@ const VehicleDetails = () => {
                         <p className='mr-16 flex justify-center items-center gap-2'><IoLocationSharp className='text-xl' />{location}</p>
                     </div>
                     <div className='mt-8 flex justify-left items-center gap-5 border-b border-gray-500 pb-8 mb-8'>
-                        <button className='book border font-semibold rounded-3xl w-[100px] h-[50px]'><span className='booking_text'>Booked</span></button>
+                        <button onClick={handleBooking} className='book border
+                         font-semibold rounded-3xl w-[150px]
+                          h-[50px]'><span className='booking_text'>Booking Now</span></button>
 
                         <Link to={`/updateVehicle/${_id}`}>
-                            <button className='bg-green-500 hover:bg-green-600 border border-blue-400 font-semibold rounded-3xl w-[100px] h-[50px]'><span className='text-white'>Update</span></button>
+                            <button className='bg-green-500 hover:bg-green-600 border
+                             border-blue-400 font-semibold
+                              rounded-3xl w-[100px] h-[50px]'><span className='text-white'>Update</span></button>
                         </Link>
 
                         <button onClick={handleDelete} className='hover:bg-red-500 hover:text-white duration-300 border font-semibold rounded-3xl w-[100px] h-[50px]'>Delete</button>
