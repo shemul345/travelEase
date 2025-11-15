@@ -4,8 +4,9 @@ import { Link } from "react-router";
 
 const videos = [
     "https://www.shutterstock.com/shutterstock/videos/3785694187/preview/stock-footage-sleek-red-sports-car-racing-at-high-speed-on-neon-highway-power-acceleration-on-a-night-track-with.webm",
+    "https://assets.mixkit.co/videos/39917/39917-720.mp4",
     "https://cdn.pixabay.com/video/2021/09/13/88481-606110665_large.mp4",
-    "https://cdn.pixabay.com/video/2022/10/20/135728-764361710_large.mp4",
+    "https://www.shutterstock.com/shutterstock/videos/3902081107/preview/stock-footage-paramedics-driving-ambulance-with-emergency-lights-through-crowded-night-streets-rushing-toward.webm",
 ];
 
 const Banner = () => {
@@ -51,7 +52,7 @@ const Banner = () => {
                                             to="/allVehicles"
                                             className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full transition transform hover:scale-105 shadow-lg"
                                         >
-                                            All Vehicles
+                                            Browse Vehicles
                                         </Link>
                                     </div>
                                 </div>

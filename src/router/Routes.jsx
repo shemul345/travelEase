@@ -21,30 +21,30 @@ export const router = createBrowserRouter([
         Component: MainLayout,
         children: [
             {
-                path:"/",
+                path: "/",
                 Component: Home,
-                loader: () => fetch('http://localhost:3000/latestVehicles')
+                loader: () => fetch('https://travel-ease-server1.vercel.app/latestVehicles')
             },
             {
                 path: "allVehicles",
                 Component: AllVehicles,
-                loader: () => fetch('http://localhost:3000/vehicles')
+                loader: () => fetch('https://travel-ease-server1.vercel.app/vehicles')
             },
             {
                 path: "about",
-                Component:About
+                Component: About
             },
             {
                 path: "vehicleDetails/:id",
                 element: <PrivateRoute>
                     <VehicleDetails></VehicleDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/vehicles/${params.id}`)
+                loader: ({ params }) => fetch(`https://travel-ease-server1.vercel.app/vehicles/${params.id}`)
             },
             {
                 path: "updateVehicle/:id",
                 Component: UpdateVehicle,
-                loader: ({ params }) => fetch(`http://localhost:3000/vehicles/${params.id}`)
+                loader: ({ params }) => fetch(`https://travel-ease-server1.vercel.app/vehicles/${params.id}`)
             },
             {
                 path: "addVehicle",
@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "login",
-                Component:Login
+                Component: Login
             },
             {
                 path: "register",
@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
                     <Profile></Profile>
                 </PrivateRoute>
             }
-            
+
         ]
 
     },

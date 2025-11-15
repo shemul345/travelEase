@@ -15,7 +15,8 @@ const Register = () => {
         setUser,
         signInWithGoogle,
         signInWithGithub,
-        updateUser } = useContext(AuthContext);
+        updateUser,
+    setLoading} = useContext(AuthContext);
     const [show, setShow] = useState(false)
     const navigate = useNavigate();
     const [passwordErro, setPasswordError] = useState("");
@@ -72,6 +73,7 @@ const Register = () => {
             })
             .catch(error => {
                 toast.error(`${error.message}`)
+                setLoading(false)
             })
     }
 
@@ -94,6 +96,7 @@ const Register = () => {
             })
             .catch((error) => {
                 toast.error(`${error.message}`)
+
             })
     }
 

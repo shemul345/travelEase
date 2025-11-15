@@ -21,8 +21,8 @@ const AddVehicles = () => {
             owner: user.displayName,
             createdAt: new Date()
         }
-        
-        fetch('http://localhost:3000/vehicles', {
+
+        fetch('https://travel-ease-server1.vercel.app/vehicles', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -35,15 +35,15 @@ const AddVehicles = () => {
                 toast.success("Added successfully!")
             })
             .catch(error => {
-                toast.warning(error);
-        })
+                console.log(error)
+            })
     }
-    
+
     return (
         <div className="my-5 card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl rounded-2xl">
             <div className="card-body p-2 relative">
                 <h2 className="text-2xl font-bold text-center mb-6">Add New Vehicle</h2>
-                <form onSubmit={handleAddVehicle}  className="space-y-4">
+                <form onSubmit={handleAddVehicle} className="space-y-4">
                     {/* Name Field */}
                     <div>
                         <label className="label font-medium">Vehicle Name</label>

@@ -8,7 +8,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
 
 const VehicleDetails = () => {
-    const {user} = use(AuthContext)
+    const { user } = use(AuthContext)
     const vehicleData = useLoaderData()
     const navigate = useNavigate();
     const vehicle = vehicleData.result
@@ -27,10 +27,10 @@ const VehicleDetails = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/vehicles/${_id}`, {
+                fetch(`https://travel-ease-server1.vercel.app/vehicles/${_id}`, {
                     method: "DELETE",
                     headers: {
-                        'content-type':'application/json'
+                        'content-type': 'application/json'
                     }
                 })
                     .then(res => res.json())
@@ -44,20 +44,20 @@ const VehicleDetails = () => {
                         });
                     })
                     .catch(error => {
-                    toast.warning(error);
-                })
-                
+                        toast.warning(error);
+                    })
+
             }
         });
     }
 
     const handleBooking = () => {
-        fetch("http://localhost:3000/bookings", {
+        fetch("https://travel-ease-server1.vercel.app/bookings", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({...vehicle, booked_by: user.email})
+            body: JSON.stringify({ ...vehicle, booked_by: user.email })
         })
             .then(res => res.json())
             .then(data => {
@@ -65,7 +65,7 @@ const VehicleDetails = () => {
                 toast.success('Successfully booked')
             })
             .catch(error => {
-                toast.warning(error);
+                console.log(error)
             })
     }
     return (
@@ -81,7 +81,7 @@ const VehicleDetails = () => {
                     </div>
                     <div className='flex justify-between items-center mt-4'>
                         <h3 className='text-orange-400 italic'>{owner}</h3>
-                        <h3 className='text-sm font-semibold mr-16 italic text-gray-500'>{ userEmail}</h3>
+                        <h3 className='text-sm font-semibold mr-16 italic text-gray-500'>{userEmail}</h3>
                     </div>
                     <div className='flex justify-between items-center'>
                         <h1 className='text-2xl font-semibold'>Price Per Day: ${pricePerDay}</h1>

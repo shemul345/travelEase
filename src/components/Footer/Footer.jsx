@@ -37,7 +37,7 @@ export default function Footer() {
                         </div>
                         <div className="flex items-center gap-3">
                             <span className="text-xs opacity-90">Email:</span>
-                            <a href="mailto:info@toytopia.example" className="text-sm hover:underline">info@toytopia.example</a>
+                            <a href="mailto:info@toytopia.example" className="text-sm hover:underline">info@travelease.com</a>
                         </div>
                     </div>
 

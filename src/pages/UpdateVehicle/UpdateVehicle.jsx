@@ -19,7 +19,7 @@ const UpdateVehicle = () => {
             description: e.target.description.value,
         }
 
-        fetch(`http://localhost:3000/vehicles/${vehicle._id}`, {
+        fetch(`https://travel-ease-server1.vercel.app/vehicles/${vehicle._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -32,8 +32,8 @@ const UpdateVehicle = () => {
                 toast.success("Updated Successfully!")
             })
             .catch(error => {
-            toast.warning(error);
-        })
+                console.log(error)
+            })
     }
     return (
         <div className="my-5 card border border-gray-200 bg-base-100 w-full max-w-xl mx-auto shadow-2xl rounded-2xl">
