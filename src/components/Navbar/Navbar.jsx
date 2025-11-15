@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'; // ✅ changed: import specific hooks instead of `use`
-import { FaCar, FaUser,FaCog as FaGear, FaInfoCircle } from 'react-icons/fa'; // ✅ added FaGear alias
+import React, { useState, useEffect, useContext } from 'react'; 
+import { FaCar, FaUser,FaCog as FaGear, FaInfoCircle } from 'react-icons/fa';
 import { GoHomeFill } from 'react-icons/go';
 import { IoMdAddCircle } from 'react-icons/io';
 import './Navbar.css';

@@ -18,7 +18,6 @@ export default function Footer() {
     }, []);
     return (
         <footer data-aos="fade-down"
-            // style={{background:`url(${footerBg})`}}
             className="bg-gradient-to-r from-black
              via-orange-950 to-black text-white">
             <div className="max-w-7xl mx-auto px-6 py-10">

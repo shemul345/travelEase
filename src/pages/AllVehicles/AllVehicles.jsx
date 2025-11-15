@@ -6,8 +6,7 @@ import { GoArrowUpLeft } from 'react-icons/go';
 const AllVehicles = () => {
     const vehicles = useLoaderData();
     const [sortedVehicles, setSortedVehicles] = useState(vehicles);
-    const [sortOrder, setSortOrder] = useState('default'); // defa
-    // console.log(vehicles)
+    const [sortOrder, setSortOrder] = useState('default');
 
     useEffect(() => {
         let sorted = [...vehicles];
@@ -32,7 +31,7 @@ const AllVehicles = () => {
                 Discover all our <span className='text-orange-400'>vehicles</span> in one place.</h1>
 
             
-            {/* Sorting + Count */}
+            {/* Sorting */}
             <div className='max-w-7xl mx-auto'>
                 <div className="flex flex-col sm:flex-row justify-between items-center mt-6 mb-4 gap-3">
                     <p className="text-lg font-semibold">

@@ -11,7 +11,6 @@ const videos = [
 const Banner = () => {
     const [current, setCurrent] = useState(0);
 
-    // Auto-play the carousel every 6 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent((prev) => (prev + 1) % videos.length);
@@ -43,7 +42,7 @@ const Banner = () => {
                                         className="w-full h-[100vh] object-cover brightness-90"
                                     />
                                     <div className="inset-0 bg-linear-to-t from-black/40 to-transparent" />
-                                    {/* ✅ “All Vehicles” Button */}
+                                    {/* All Vehicles Button */}
                                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
                                         <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
                                             Explore Your Next Ride

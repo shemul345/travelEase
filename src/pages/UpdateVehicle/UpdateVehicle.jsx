@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const UpdateVehicle = () => {
     const vehicleData = useLoaderData()
     const vehicle = vehicleData.result
-    console.log(vehicle)
+    // console.log(vehicle)
 
     const handleUpdate = (e) => {
         e.preventDefault()
@@ -32,7 +32,7 @@ const UpdateVehicle = () => {
                 toast.success("Updated Successfully!")
             })
             .catch(error => {
-            console.log(error)
+            toast.warning(error);
         })
     }
     return (

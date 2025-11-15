@@ -3,7 +3,6 @@ import { useSpring } from '@react-spring/web';
 import { Link } from 'react-router';
 
 const NotFound = () => {
-    // Simple bounce animation for the "404" text
     const bounce = useSpring({
         from: { transform: 'translateY(-20px)', opacity: 0 },
         to: { transform: 'translateY(0px)', opacity: 1 },

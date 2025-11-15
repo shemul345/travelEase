@@ -63,7 +63,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Three feature sections */}
             <section className="mt-16 space-y-12">
                 {/* Section 1: Mission */}
                 <div data-aos="fade-up" className="flex flex-col lg:flex-row items-center gap-6">
@@ -160,7 +159,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* FAQ / Q&A */}
+            {/* FAQ */}
             <section data-aos="fade-down" className="mt-10">
                 <h3 className="text-lg sm:text-xl font-bold">Frequently Asked Questions</h3>
                 <div className="mt-4 space-y-3">
@@ -186,7 +185,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* small contact CTA */}
             <section data-aos="fade-up" className="mt-8 text-center">
                 <p className="text-gray-600">Want to know more or partner with us?</p>
                 <a

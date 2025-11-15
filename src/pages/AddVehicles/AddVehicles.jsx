@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const AddVehicles = () => {
     const { user } = use(AuthContext)
-    console.log(user)
+    // console.log(user)
 
     const handleAddVehicle = (e) => {
         e.preventDefault()
@@ -35,7 +35,7 @@ const AddVehicles = () => {
                 toast.success("Added successfully!")
             })
             .catch(error => {
-            console.log(error)
+                toast.warning(error);
         })
     }
     

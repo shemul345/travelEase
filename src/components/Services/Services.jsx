@@ -3,7 +3,6 @@ import { useSpring } from '@react-spring/web';
 import { FaBolt, FaLock, FaShieldAlt } from "react-icons/fa";
 
 const Services = () => {
-    // simple fade-in spring
     const fadeIn = useSpring({
         from: { opacity: 0, transform: 'translateY(20px)' },
         to: { opacity: 1, transform: 'translateY(0)' },
@@ -92,7 +91,6 @@ const Services = () => {
                             </article>
                         </div>
 
-                        {/* Footer CTA */}
                         <div className="mt-8 flex justify-center">
                             <a
                                 href="/allVehicles"

@@ -12,7 +12,7 @@ const VehicleDetails = () => {
     const vehicleData = useLoaderData()
     const navigate = useNavigate();
     const vehicle = vehicleData.result
-    console.log(vehicle)
+    // console.log(vehicle)
     const { _id, coverImage, description, owner, location, vehicleName, userEmail, pricePerDay } = vehicle;
 
     const handleDelete = () => {
@@ -44,7 +44,7 @@ const VehicleDetails = () => {
                         });
                     })
                     .catch(error => {
-                    console.log(error)
+                    toast.warning(error);
                 })
                 
             }
@@ -65,7 +65,7 @@ const VehicleDetails = () => {
                 toast.success('Successfully booked')
             })
             .catch(error => {
-                console.log(error)
+                toast.warning(error);
             })
     }
     return (
