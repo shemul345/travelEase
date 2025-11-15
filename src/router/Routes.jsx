@@ -13,6 +13,7 @@ import VehicleDetails from '../pages/VehicleDetails/VehicleDetails';
 import UpdateVehicle from '../pages/UpdateVehicle/UpdateVehicle';
 import PrivateRoute from './PrivateRoute';
 import About from '../pages/About/About';
+import NotFound from '../pages/NotFound/NotFound';
 
 export const router = createBrowserRouter([
     {
@@ -77,6 +78,12 @@ export const router = createBrowserRouter([
                     <Profile></Profile>
                 </PrivateRoute>
             }
+            
         ]
+
+    },
+    {
+        path: "*",
+        Component: NotFound
     }
 ]);

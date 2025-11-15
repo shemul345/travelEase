@@ -1,7 +1,15 @@
 import React from 'react';
+import { useSpring } from '@react-spring/web';
 import { FaBolt, FaLock, FaShieldAlt } from "react-icons/fa";
 
 const Services = () => {
+    // simple fade-in spring
+    const fadeIn = useSpring({
+        from: { opacity: 0, transform: 'translateY(20px)' },
+        to: { opacity: 1, transform: 'translateY(0)' },
+        config: { duration: 600 },
+    });
+
     return (
         <section
             aria-labelledby="services-title"
@@ -9,13 +17,13 @@ const Services = () => {
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-8">
+                <div style={fadeIn} className="text-center mb-8">
                     <p className='text-center mb-2'>
-                        <span className="border border-red-600 w-6 h-0.5 inline-block"></span>
-                        <span className='font-semibold text-red-500 ml-2'>Our Services</span>
+                        <span className="border border-red-900 w-6 h-0.5 inline-block"></span>
+                        <span className='font-semibold text-orange-300 ml-2'>Our Services</span>
                     </p>
                     <h1 className='text-3xl font-bold text-gray-800'>
-                        Reliable vehicle rental <span className='text-red-500'>Services</span> built for speed, safety and secure payments.
+                        Reliable vehicle rental <span className='text-orange-400'>Services</span> built for speed, safety and secure payments.
                     </h1>
                 </div>
 
@@ -25,12 +33,11 @@ const Services = () => {
                         <div className="max-w-6xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             {/* Card 1 */}
                             <article
+                                style={fadeIn}
                                 className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-start gap-4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition duration-300"
-                                role="article"
-                                aria-label="Fast Response"
                             >
                                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-red-500 text-white">
-                                    <FaBolt className="w-5 h-5 bg-red-500" aria-hidden />
+                                    <FaBolt className="w-5 h-5 bg-red-500" />
                                 </div>
                                 <h3 className="text-lg font-semibold text-gray-800">Fast Response</h3>
                                 <p className="text-sm text-gray-600">
@@ -46,12 +53,11 @@ const Services = () => {
 
                             {/* Card 2 */}
                             <article
+                                style={fadeIn}
                                 className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-start gap-4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition duration-300"
-                                role="article"
-                                aria-label="Secure Payment"
                             >
                                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-red-500 text-white">
-                                    <FaLock className="w-5 h-5" aria-hidden />
+                                    <FaLock className="w-5 h-5" />
                                 </div>
                                 <h3 className="text-lg font-semibold text-gray-800">Secure Payment</h3>
                                 <p className="text-sm text-gray-600">
@@ -67,12 +73,11 @@ const Services = () => {
 
                             {/* Card 3 */}
                             <article
+                                style={fadeIn}
                                 className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-start gap-4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition duration-300"
-                                role="article"
-                                aria-label="Security System"
                             >
                                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-md bg-red-500 text-white">
-                                    <FaShieldAlt className="w-5 h-5" aria-hidden />
+                                    <FaShieldAlt className="w-5 h-5" />
                                 </div>
                                 <h3 className="text-lg font-semibold text-gray-800">Security System</h3>
                                 <p className="text-sm text-gray-600">
@@ -87,12 +92,11 @@ const Services = () => {
                             </article>
                         </div>
 
-                        {/* small footer CTA */}
+                        {/* Footer CTA */}
                         <div className="mt-8 flex justify-center">
                             <a
                                 href="/allVehicles"
                                 className="inline-block border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-5 py-2 rounded-full text-sm font-semibold transition duration-300"
-                                aria-label="Browse all vehicles"
                             >
                                 Browse Vehicles
                             </a>
@@ -101,7 +105,6 @@ const Services = () => {
                 </div>
             </div>
         </section>
-
     );
 };
 

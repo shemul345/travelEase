@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react'; // ✅ changed: 
 import { FaCar, FaUser,FaCog as FaGear, FaInfoCircle } from 'react-icons/fa'; // ✅ added FaGear alias
 import { GoHomeFill } from 'react-icons/go';
 import { IoMdAddCircle } from 'react-icons/io';
-import logo from '../../assets/logo.jpg'
 import './Navbar.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { IoLogOut } from 'react-icons/io5';
@@ -10,8 +9,14 @@ import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setIsSticky(window.scrollY > 20);
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     useEffect(() => {
         const html = document.querySelector('html')
@@ -32,7 +37,13 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar py-2 px-8 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl mx-auto">
+        <>
+            <div aria-hidden style={{ height: isSticky ? "64px" : 0 }}></div>
+            <div className={`navbar py-2 px-8 min-h-0 shadow-sm rounded-full glass-card max-w-7xl mx-auto transition-all duration-300
+                    ${isSticky
+                    ? "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-2xl"
+                    : ""
+                }`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,7 +56,6 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex justify-center items-center gap-1'>
-                    <img className='w-[50px]' src={logo} alt="" />
                     <a href='/' className="text-3xl font-bold bg-gradient-to-r from-black to-orange-500 bg-clip-text text-transparent">
                         TravelEase
                     </a>
@@ -90,12 +100,6 @@ const Navbar = () => {
                                 type="checkbox"
                                 defaultChecked={localStorage.getItem('theme') === "dark"}
                                 className="toggle my-2" />
-
-                            <li>
-                                <a>
-                                    <FaGear /> Settings
-                                </a>
-                            </li>
                             <li>
                                 <button
                                     onClick={logOut}
@@ -114,7 +118,8 @@ const Navbar = () => {
                         </Link>
                 )}
             </div>
-        </div>
+            </div>
+        </>
     );
 };
 
