@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-// 1. ESSENTIAL CSS Imports for react-slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -51,18 +50,17 @@ const ClientReviews = () => {
         autoplay: true,
         autoplaySpeed: 0,
         cssEase: "linear",
-        // Default (LG screens and above: > 768px)
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
         responsive: [
             {
-                // **Medium (MD) devices**: Max width 768px. Shows 2 slides.
+                
                 breakpoint: 768,
                 settings: { slidesToShow: 2 },
             },
             {
-                // **Small (SM) devices**: Max width 640px. Shows 1 slide.
+                
                 breakpoint: 640,
                 settings: { slidesToShow: 1 },
             },
